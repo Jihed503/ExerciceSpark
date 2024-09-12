@@ -1,6 +1,7 @@
-from exercice.context.context import spark
 from pyspark.sql import DataFrame
 from pyspark.sql.types import StructType
+
+from exercice.context.context import spark
 
 
 def read_from_parquet(parquet_folder_path: str) -> DataFrame:
