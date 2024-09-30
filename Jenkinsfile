@@ -1,35 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    def gitBranch = 'main'
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: gitBranch]],
-                        userRemoteConfigs: [[url: 'https://github.com/Jihed503/ExerciceSpark.git']]
-                    ])
-                }
-            }
-        }
+
         stage('Install pip and pytest') {
             steps {
-                echo %PATH%
-                bat 'python -m ensurepip'
-                bat 'python -m pip install --upgrade pip'
+
                 bat 'pip install pytest'
+                bat 'pytest --version'
+
+
             }
         }
         stage('Run Tests') {
             steps {
-                bat 'pytest ExerciceSpark/Glue\\ code/exercice/test/test.py --junitxml=test-results.xml'
+                bat 'pytest ExerciceSpark\Glue\exercice/test/test.py '
             }
-        }
-    }
-    post {
-        always {
-            junit '**/test-results.xml' // Génération de rapports de tests
         }
     }
 }
