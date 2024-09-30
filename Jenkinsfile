@@ -7,8 +7,17 @@
             }
         }
         stage("install pytest"){
-            steps{
-              bat 'pip install pytest'
+            steps {
+                // Install pip if it's not already installed (Windows)
+                bat '''
+                @echo off
+                python -m ensurepip --upgrade || (
+                    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+                    python get-pip.py
+                )
+                '''
+                // Install pytest
+                bat 'pip install pytest'
             }
         }
         stage("run test"){
