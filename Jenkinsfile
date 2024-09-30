@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'atcsecure/pytest:latest' // Utilisation d'une image Docker contenant pytest
-            args '-u root' // Exécuter avec les droits root si nécessaire
         }
     }
     stages {
