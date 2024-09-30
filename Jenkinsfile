@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("get_code") {
             steps {
-                git 'https://github.com/Jihed503/ExerciceSpark'
+                git branch: 'main', url: 'https://github.com/Jihed503/ExerciceSpark'
             }
         }
         stage("install pip and pytest") {
