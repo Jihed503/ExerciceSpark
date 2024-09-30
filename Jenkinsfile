@@ -8,7 +8,7 @@
         }
         stage("install pytest"){
             steps {
-              bat ' python --version'
+              bat ' pytest --version'
 
     }
   }
