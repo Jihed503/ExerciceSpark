@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                bat 'pytest ExerciceSpark\Glue\exercice/test/test.py '
+                bat 'pytest ExerciceSpark/Glue/exercice/test/test.py '
             }
         }
     }
