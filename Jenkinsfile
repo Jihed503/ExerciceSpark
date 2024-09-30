@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage("blalbj"){
       steps{
-        sh "echo mldfgjd"
+        bat "echo mldfgjd"
       }
     }
   }
