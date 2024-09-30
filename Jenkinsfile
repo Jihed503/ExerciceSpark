@@ -1,20 +1,20 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-
-        stage('Install pip and pytest') {
-            steps {
-
+    stages{
+        stage("get_code"){
+            steps{
+ 
+                bat 'python --version'
                 bat 'pip install pytest'
                 bat 'pytest --version'
-
-
             }
         }
-        stage('Run Tests') {
-            steps {
-                bat 'pytest ExerciceSpark/Glue/exercice/test/test.py '
-            }
+        stage("run test"){
+            steps{
+                bat 'pytest ExerciceSpark/Glue code/exercice/test/test.py'
         }
+    }
+ 
+ 
     }
 }
