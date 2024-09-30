@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("get_code"){
             steps{
-                bat 'echo %Path%'
+                bat 'echo ***********************************************************************'
                 bat 'python --version'
                 bat 'pip install pytest'
                 bat 'pytest --version'
