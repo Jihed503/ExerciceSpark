@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PYTHON_HOME = tool 'C:\\Users\\jselmi\\AppData\\Local\\Programs\\Python\\Python312'
-        PATH = "${PYTHON_HOME};${env.PATH}"
-    }
-
     stages {
         stage("Get Code") {
             steps {
