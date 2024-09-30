@@ -1,20 +1,37 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage("get_code"){
-            steps{
-                bat 'echo ***********************************************************************'
-                bat 'python --version'
-                bat 'pip install pytest'
-                bat 'pytest --version'
+
+    environment {
+        PYTHON_HOME = tool 'C:\\Users\\jselmi\\AppData\\Local\\Programs\\Python\\Python312'
+        PATH = "${PYTHON_HOME};${env.PATH}"
+    }
+
+    stages {
+        stage("Get Code") {
+            steps {
+                script {
+                    // Display the start of the process
+                    bat 'echo ***********************************************************************'
+                    
+                    // Check Python version
+                    bat 'python --version'
+
+                    // Install pytest
+                    bat 'pip install pytest'
+
+                    // Check pytest version
+                    bat 'pytest --version'
+                }
             }
         }
-        stage("run test"){
-            steps{
-                bat 'pytest ExerciceSpark/Glue code/exercice/test/test.py'
+        
+        stage("Run Test") {
+            steps {
+                script {
+                    // Run the pytest command on the specified test file
+                    bat 'pytest ExerciceSpark/Glue code/exercice/test/test.py'
+                }
+            }
         }
-    }
- 
- 
     }
 }
