@@ -10,7 +10,7 @@
             steps {
                 // Set PYTHONHOME and PATH environment variables
               virtualenv venv --distribute
-              . venv/bin/activat                    
+              . venv\bin\activat                    
               pip install pytest
                     bat 'pytest --version'
                 }
