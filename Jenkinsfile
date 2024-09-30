@@ -12,8 +12,8 @@
             }
         }
         stage("run test"){
-            steps{
-            bat 'pytest ExerciceSpark/Glue code/exercice/test/test.py'
+            steps {
+              bat 'pytest ExerciceSpark/Glue code/exercice/test/test.py --junitxml=test-results.xml'
             }
         }
     }
