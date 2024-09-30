@@ -15,6 +15,7 @@ pipeline {
         }
         stage('Install pip and pytest') {
             steps {
+                echo %PATH%
                 bat 'python -m ensurepip'
                 bat 'python -m pip install --upgrade pip'
                 bat 'pip install pytest'
